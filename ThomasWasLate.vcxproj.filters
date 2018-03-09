@@ -33,12 +33,15 @@
     <ClInclude Include="PlayableCharacter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Thomas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bob.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+=======
+>>>>>>> parent of f4ace69... Created Thomas.cpp and .h and created Bob.cpp and .h
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -62,11 +65,14 @@
     <ClCompile Include="Draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Thomas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bob.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+=======
+>>>>>>> parent of f4ace69... Created Thomas.cpp and .h and created Bob.cpp and .h
   </ItemGroup>
 </Project>
