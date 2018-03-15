@@ -69,5 +69,31 @@ int** LevelManager::nextLevel(VertexArray& rVaLevel)
 	inputFile.clear();
 	inputFile.seekg(0, ios::beg);
 
+	// Prepare the 2D array to hold the int values from the file
+	int** arrayLevel = new int*[m_LevelSize.y];
+	for (int i = 0; i < m_LevelSize.y; ++i)
+	{
+		arrayLevel[i] = new int[m_LevelSize.x];
+	}
+
+	// Loop through file and store all the values in the 2D array
+	string row;
+	int y = 0;
+	while (inputFile >> row)
+	{
+		for (int x = 0; x < row.length(); x++)
+		{
+			const char val = row[x];
+			arrayLevel[y][x] = atoi(&val);
+		}
+
+		y++;
+	}
+
+	// Close the file
+	inputFile.close();
+
+
+
 
 } // End Function nextLevel()
