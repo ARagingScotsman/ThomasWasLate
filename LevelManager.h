@@ -23,6 +23,6 @@ public:
 	Vector2f getStartPosition();
 	int** nextLevel(VertexArray& rVaLevel);
 	Vector2i getLevelSize();
-	int getCurrentLevel():
+	int getCurrentLevel();
 
 }; // End class LevelManager
