@@ -50,7 +50,10 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				// Have we hit lava or water?
 				// Use the head collider on the character as this allows the character to sink a bit into the lava or water
 
-			if (m_Arraylevel[y][x] == 2 || m_Arraylevel[y][x] == 3)
+
+				
+				
+				if (m_Arraylevel[y][x] == 2 || m_Arraylevel[y][x] == 3)
 				{
 					if (character.getHead().intersects(block))
 					{
@@ -60,11 +63,11 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 						// Play a sound based on water or lava death
 						if (m_Arraylevel[y][x] == 2) // FIRE
 						{
-							//TODO:: Play sound
+							m_SM.playFallInFire();
 						}
 						else // WATER
 						{
-							//TODO: Play sound
+							m_SM.playFallInWater();
 						}
 					}// end block collision test with lava/water
 
