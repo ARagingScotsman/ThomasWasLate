@@ -5,6 +5,8 @@
 #include "Bob.h"
 #include "LevelManager.h"
 #include "SoundManager.h"
+#include "HUD.h"
+#include "ParticleSystem.h"
 
 using namespace sf;
 // NOTE: Don't use "using" in .h files!
@@ -16,6 +18,9 @@ private:
 	TextureHolder th;
 	//NOTE: Don't name things "th" (single letter abbreviations)
 
+	// create a particle system
+	ParticleSystem m_PS;
+
 	// Our Playable charcters, Thomas and his friend Bob
 	Thomas m_Thomas;
 	Bob m_Bob;
@@ -25,6 +30,11 @@ private:
 
 	//Sound Manager
 	SoundManager m_SM;
+
+	// The Hud
+	Hud m_Hud;
+	int m_FramesSinceLastHUDUpdate = 0;
+	int m_TargetFramesPerHUDUpdate = 500;
 
 	const int TILE_SIZE = 50;
 	const int VERTS_IN_QUAD = 4;
@@ -48,6 +58,9 @@ private:
 	// Sprite and texture for background
 	Sprite m_BackgroundSprite;
 	Texture m_BackgroundTexture;
+
+	// Declare a shader for the background
+	Shader m_RippleShader;
 
 	// Is the game currently playing?
 	bool m_Playing = false;

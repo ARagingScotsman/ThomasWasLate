@@ -95,4 +95,29 @@ void Engine::update(float dtAsSeconds)
 		}
 	}
 
+	// Time to update the HUD?
+	// increment the number of frames since the last HUD calculation
+	m_FramesSinceLastHUDUpdate++;
+
+	// Update the HUD every m_TargetFramesPerHUDUpdate frames
+	if (m_FramesSinceLastHUDUpdate > m_TargetFramesPerHUDUpdate)
+	{
+		// Update game HUD text
+		stringstream ssTime;
+		stringstream ssLevel;
+		// Update the time text
+		ssTime << (int)m_TimeRemaining;
+		m_Hud.setTime(ssTime.str());
+		// Update the level text
+		ssLevel << "Level:" << m_LM.getCurrentLevel();
+		m_Hud.setLevel(ssLevel.str());
+		m_FramesSinceLastHUDUpdate = 0;
+	}
+
+	// Update the particles
+	if (m_PS.running())
+	{
+		m_PS.update(dtAsSeconds);
+	}
+
 } // End of update function

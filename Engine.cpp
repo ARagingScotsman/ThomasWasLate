@@ -24,6 +24,19 @@ Engine::Engine()
 	m_BGLeftView.setViewport(FloatRect(0.001f, 0.001f, 0.498f, 0.998f));
 	m_BGRightView.setViewport(FloatRect(0.5f, 0.001f, 0.498f, 0.998f));
 
+	// Can this graphics card use shaders?
+	if (!sf::Shader::isAvailable())
+	{
+		// Time to get a new PC
+		m_Window.close();
+	}
+	else
+	{
+		// Load two shaders (1 vertex, 1 fragment)
+		m_RippleShader.loadFromFile("shaders/vertShader.vert",
+			"shaders/rippleShader.frag");
+	}
+
 	// Get background texture 
 	m_BackgroundTexture = TextureHolder::GetTexture("graphics/background.png");
 
@@ -32,6 +45,9 @@ Engine::Engine()
 
 	// Load the texture for the background array
 	m_TextureTiles = TextureHolder::GetTexture("graphics/tiles_sheet.png");
+
+	// Initialize the particle system
+	m_PS.init(1000);
 }
 
 void Engine::run()
